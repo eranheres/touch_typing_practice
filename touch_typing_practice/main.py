@@ -1,18 +1,21 @@
 ## main.py
 import curses
+
+from touch_typing_practice import typing_practice
 from touch_typing_practice.frontend import Frontend
+
 
 def main(stdscr):
     frontend = Frontend()
     frontend.run(stdscr)
+    while True:
         print("1. Start new session\r")
         print("2. View statistics\r")
         print("3. Exit\r\n")
         try:
-            choice = int(stdscr.getstr(0,0,3))
+            choice = int(stdscr.getstr(0, 0, 3))
         except ValueError:
             print("Invalid choice. Please try again.")
-            continue
 
         if choice == 1:
             print("Enter text for the session: ")
@@ -27,10 +30,12 @@ def main(stdscr):
             for session_time, session_statistics in statistics.items():
                 print(f"Session at {session_time}:")
                 for stat, value in session_statistics.items():
+                    print(f"{stat}: {value}")
         elif choice == 3:
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     curses.wrapper(main)
