@@ -1,6 +1,6 @@
 ## main.py
 import curses
-from typing_practice import TypingPractice
+from touch_typing_practice.typing_practice import TypingPractice
 from user import User
 
 def main(stdscr):
