@@ -1,9 +1,8 @@
 ## main.py
 import curses
 
-from touch_typing_practice.user import User
-
 from touch_typing_practice.typing_practice import TypingPractice
+from touch_typing_practice.user import User
 
 
 def main(stdscr):
