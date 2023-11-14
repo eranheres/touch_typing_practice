@@ -1,14 +1,17 @@
 ## main.py
 import curses
-from touch_typing_practice.typing_practice import TypingPractice
+
 from user import User
+
+from touch_typing_practice.typing_practice import TypingPractice
+
 
 def main(stdscr):
     # Clear screen
     stdscr.clear()
     curses.echo()
     print("Enter your username: \n\r")
-    username = stdscr.getstr(0,0,15)
+    username = stdscr.getstr(0, 0, 15)
     user = User.load(username)
     typing_practice = TypingPractice(user)
 
@@ -17,7 +20,7 @@ def main(stdscr):
         print("2. View statistics\r")
         print("3. Exit\r\n")
         try:
-            choice = int(stdscr.getstr(0,0,3))
+            choice = int(stdscr.getstr(0, 0, 3))
         except ValueError:
             print("Invalid choice. Please try again.")
             continue
@@ -40,6 +43,7 @@ def main(stdscr):
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     curses.wrapper(main)
