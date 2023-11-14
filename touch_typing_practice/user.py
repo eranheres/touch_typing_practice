@@ -1,7 +1,7 @@
 ## user.py
 import json
 from typing import Dict
-from session import Session
+from touch_typing_practice.session import Session
 
 class User:
     def __init__(self, username: str):

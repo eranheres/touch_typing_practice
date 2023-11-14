@@ -1,5 +1,5 @@
-from user import User
-from session import Session
+from touch_typing_practice.user import User
+from touch_typing_practice.session import Session
 
 class TypingPractice:
     def __init__(self, user: User):

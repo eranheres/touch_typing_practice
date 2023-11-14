@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import Mock
 from touch_typing_practice.typing_practice import TypingPractice
-from user import User
-from session import Session
+from touch_typing_practice.user import User
+from touch_typing_practice.session import Session
 
 class TestTypingPractice(unittest.TestCase):
     ## Test Initialization
@@ -49,5 +49,3 @@ class TestTypingPractice(unittest.TestCase):
         user.get_statistics = Mock(return_value="statistics")
         self.assertEqual(tp.get_user_statistics(), "statistics")
 
-if __name__ == '__main__':
-    unittest.main()
