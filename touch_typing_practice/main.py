@@ -1,18 +1,10 @@
 ## main.py
 import curses
-from touch_typing_practice.typing_practice import TypingPractice
-from touch_typing_practice.user import User
+from touch_typing_practice.frontend import Frontend
 
 def main(stdscr):
-    # Clear screen
-    stdscr.clear()
-    curses.echo()
-    print("Enter your username: \n\r")
-    username = stdscr.getstr(0,0,15)
-    user = User.load(username)
-    typing_practice = TypingPractice(user)
-
-    while True:
+    frontend = Frontend()
+    frontend.run(stdscr)
         print("1. Start new session\r")
         print("2. View statistics\r")
         print("3. Exit\r\n")
@@ -35,7 +27,6 @@ def main(stdscr):
             for session_time, session_statistics in statistics.items():
                 print(f"Session at {session_time}:")
                 for stat, value in session_statistics.items():
-                    print(f"  {stat}: {value}")
         elif choice == 3:
             break
         else:
