@@ -1,6 +1,8 @@
 import curses
+
 from touch_typing_practice.typing_practice import TypingPractice
 from touch_typing_practice.user import User
+
 
 class Frontend:
     def __init__(self):
@@ -10,7 +12,7 @@ class Frontend:
         stdscr.clear()
         curses.echo()
         stdscr.addstr("Enter your username: \n\r")
-        username = stdscr.getstr(0,0,15)
+        username = stdscr.getstr(0, 0, 15)
         return username
 
     def get_menu_choice(self, stdscr):
@@ -19,7 +21,7 @@ class Frontend:
         stdscr.addstr("2. View statistics\r")
         stdscr.addstr("3. Exit\r\n")
         try:
-            choice = int(stdscr.getstr(0,0,3))
+            choice = int(stdscr.getstr(0, 0, 3))
         except ValueError:
             stdscr.addstr("Invalid choice. Please try again.")
             return None
