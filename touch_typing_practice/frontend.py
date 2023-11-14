@@ -1,6 +1,8 @@
 import curses
+
 from touch_typing_practice.typing_practice import TypingPractice
 from touch_typing_practice.user import User
+
 
 class Frontend:
     def __init__(self, username: str):
