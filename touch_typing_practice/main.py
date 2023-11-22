@@ -8,12 +8,9 @@ def main(stdscr):
     stdscr.clear()
     curses.echo()
     print("Enter your username: \n\r")
-    username = stdscr.getstr(0,0,15)
-    user = User.load(username)
-    typing_practice = TypingPractice(user)
-
-    while True:
-        print("1. Start new session\r")
+    username = stdscr.getstr(0,0,15).decode("utf-8")
+    frontend = Frontend(username)
+    frontend.run()
         print("2. View statistics\r")
         print("3. Exit\r\n")
         try:
@@ -33,13 +30,3 @@ def main(stdscr):
         elif choice == 2:
             statistics = typing_practice.get_user_statistics()
             for session_time, session_statistics in statistics.items():
-                print(f"Session at {session_time}:")
-                for stat, value in session_statistics.items():
-                    print(f"  {stat}: {value}")
-        elif choice == 3:
-            break
-        else:
-            print("Invalid choice. Please try again.")
-
-if __name__ == "__main__":
-    curses.wrapper(main)
