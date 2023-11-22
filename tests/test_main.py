@@ -1,5 +1,6 @@
 # imports
 import unittest
+import curses
 from unittest.mock import MagicMock, patch
 
 from touch_typing_practice.main import main
