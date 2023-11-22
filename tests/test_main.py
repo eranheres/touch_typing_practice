@@ -8,17 +8,16 @@ from touch_typing_practice.main import main
 class TestMainFunction(unittest.TestCase):
     @patch("touch_typing_practice.typing_practice.TypingPractice.get_user_statistics")
     @patch("touch_typing_practice.user.User.load")
-    @patch("curses.window.getstr")
-    @unittest.skip("[0m")
+    @patch.object(curses.window, "getstr")
     def test_main_user_interaction(
         self, mock_getstr, mock_load, mock_get_user_statistics
     ):
         # Set up the mock objects
         mock_getstr.side_effect = [
-            b"mocked_username",
-            b"1",
-            b"mocked_text",
-            b"mocked_typed_text",
+            "mocked_username",
+            "1",
+            "mocked_text",
+            "mocked_typed_text",
         ]
         mock_user_instance = MagicMock()
         mock_load.return_value = mock_user_instance
@@ -52,7 +51,6 @@ class TestMainFunction(unittest.TestCase):
         mock_get_user_statistics.return_value = {
             "mocked_time": {"wpm": 50, "accuracy": 90}
         }
-
         # Call the main function with a mocked stdscr object
         main(MagicMock())
 
