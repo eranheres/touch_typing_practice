@@ -16,7 +16,7 @@ def main(stdscr):
     user = User.load(username)
     frontend = FrontEnd(user, stdscr)
     frontend.run()
-        print("1. Start new session\r")
+    print("1. Start new session\r")
         print("2. View statistics\r")
         print("3. Exit\r\n")
         try:
